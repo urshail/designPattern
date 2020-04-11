@@ -1,4 +1,8 @@
-# designPattern
+Example of Design Patterns :
+
+Adapter Design Pattern
+----------------------------------------------------------------------------------------
+
 ----mp3--------
   song.mp3       Works fine with mp3 class
 -----------------   
@@ -12,3 +16,4 @@ Adapter is a mp3 class and has a mp4.
 ------mp3-----                                                     --------mp4---------
 pass song.mp4      pass this to mp4 class    =======>                play song.mp4
 ----------------                                                 -----------------------
+
