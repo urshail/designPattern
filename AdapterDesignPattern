@@ -1,0 +1,69 @@
+// Adapter Design Pattern
+#include<iostream>
+using namespace std;
+
+class mp3
+{
+  string mp3Song;
+
+  public:
+    mp3()
+    {
+	    mp3Song="playing default song ";
+    }
+    mp3(string song)
+    {
+	    mp3Song=song;
+    }
+
+    virtual void playSong()
+    {
+	    cout<<"playing mp3 "<<mp3Song<<endl;
+    }
+ };
+
+class mp4
+{
+  string mp4Song;
+
+  public:
+    mp4(string song)
+    {
+	    mp4Song=song;
+    }
+    void  video()
+    {
+	  	cout<<"playing mp4 "<<mp4Song<<endl;
+    }
+};
+
+class mp3Adapter:public mp3
+{
+  mp4 *mp4o;
+  public:
+    
+    mp3Adapter(string song)
+    {
+	    mp4o = new mp4(song);
+    }
+    virtual void playSong()
+    {
+	    mp4o->video();
+    }
+};
+
+int main()
+{
+	string song("sa re ga ma");
+
+  //mp3 class. mp3 is working fine.
+	mp3 *mp3o = new mp3(song);
+	mp3o->playSong();
+
+	//There is new media format(mp4) which mp3 can not handle.
+	//So we will use adapter to make it compatible with mp3. 
+	mp3 *ma = new mp3Adapter(song+" video song");
+	ma->playSong();
+
+	return 0;
+}
